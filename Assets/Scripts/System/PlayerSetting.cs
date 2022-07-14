@@ -47,7 +47,7 @@ public class PlayerSetting : MonoBehaviour
             }
         }else if(ThisScene == "ChooseLevel"){
             if(!PlayerPrefs.HasKey("Quality")){
-                QualitySettings.SetQualityLevel(5);
+                QualitySettings.SetQualityLevel(2);
             }else{
                 if(PlayerPrefs.GetString("Quality") == "Very Low"){
                     QualitySettings.SetQualityLevel(0);
