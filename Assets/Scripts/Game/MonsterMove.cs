@@ -12,6 +12,7 @@ public class MonsterMove : MonoBehaviour
 
 	public float speed;
 	public int MinusHeart;
+	public bool DontMove;
 
 	private void OnTriggerEnter(Collider other) {
 		if(other.gameObject.tag == "Castle"){
@@ -27,17 +28,18 @@ public class MonsterMove : MonoBehaviour
 	}
 
 	void Moving() {
-		//如果index小於 路徑點數組點最大下標 就繼續移動
-		if (index <= positions.Length - 1) {
-			//獲得 單位向量
-			transform.Translate((positions[index].position - transform.position).normalized * Time.deltaTime * speed);
-			// transform.position =  Vector3.up * 0.3f;
-			if (Vector3.Distance(positions[index].position, transform.position) <= 1f)
-			{
-				index++;
+		if(DontMove == false){
+			//如果index小於 路徑點數組點最大下標 就繼續移動
+			if (index <= positions.Length - 1) {
+				//獲得 單位向量
+				transform.Translate((positions[index].position - transform.position).normalized * Time.deltaTime * speed);
+				// transform.position =  Vector3.up * 0.3f;
+				if (Vector3.Distance(positions[index].position, transform.position) <= 1f)
+				{
+					index++;
+				}
 			}
 		}
-
 	}
 
 	// Use this for initialization

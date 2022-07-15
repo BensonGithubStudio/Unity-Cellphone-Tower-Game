@@ -14,8 +14,6 @@ public class GameSave : MonoBehaviour
     public GameObject [] GrayLevel;
     public GameObject [] OrangeLevel;
 
-    public GameObject InfiniteLevel;
-
     // Start is called before the first frame update
     void Start()
     {
@@ -179,10 +177,6 @@ public class GameSave : MonoBehaviour
         }
         if(PlayerPrefs.HasKey("Orange Level 3")){
             OrangeLevel[4].SetActive(false);
-        }
-
-        if(PlayerPrefs.HasKey("Level 19") && PlayerPrefs.HasKey("Orange Level 4") && PlayerPrefs.HasKey("Gray Level 7")){
-            InfiniteLevel.SetActive(false);
         }
     }
 

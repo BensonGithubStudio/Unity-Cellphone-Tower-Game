@@ -5316,7 +5316,7 @@ GameObject:
   - component: {fileID: 5359147877763594555}
   - component: {fileID: 5359147877762824477}
   - component: {fileID: 5359147877761694685}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Body
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5393,7 +5393,7 @@ GameObject:
   - component: {fileID: 5359147877763594557}
   - component: {fileID: 5359147877762824479}
   - component: {fileID: 5359147877761694687}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Gun
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5699,9 +5699,10 @@ GameObject:
   - component: {fileID: 1027194278848377556}
   - component: {fileID: 8331626569929165233}
   - component: {fileID: 1938519001211962509}
-  m_Layer: 0
+  - component: {fileID: 8401230077245327571}
+  m_Layer: 13
   m_Name: Tower
-  m_TagString: Untagged
+  m_TagString: Tower
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5840,3 +5841,16 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!65 &8401230077245327571
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9193876858658393979}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 3, y: 3, z: 3}
+  m_Center: {x: 0, y: 0, z: 0}

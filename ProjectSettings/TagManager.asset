@@ -8,6 +8,11 @@ TagManager:
   - Castle
   - Meteorite
   - Tower
+  - Tower Position
+  - Up Wall
+  - Down Wall
+  - Right Wall
+  - Left Wall
   layers:
   - Default
   - TransparentFX
