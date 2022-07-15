@@ -8,7 +8,7 @@ public class WaitingInGame : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Invoke("ChangeToAwakeScene", 2);
+        Invoke("ChangeToAwakeScene", 5);
     }
 
     void ChangeToAwakeScene(){

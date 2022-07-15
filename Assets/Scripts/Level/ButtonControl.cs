@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class ButtonControl : MonoBehaviour
 {
@@ -9,6 +10,7 @@ public class ButtonControl : MonoBehaviour
 
     public Animator SettingAnimator;
     public GameObject SettingImage;
+    public Slider QualitySettingSlider;
 
     public AudioSource ClickButtonAudioSource;
     public AudioClip ClickButtonSound;
@@ -45,6 +47,31 @@ public class ButtonControl : MonoBehaviour
     }
     public void OnClickCancelSetting(){
         SettingImage.SetActive(false);
+
+        if(QualitySettingSlider.value == 0){
+            PlayerPrefs.SetString("Quality", "Very Low");
+            QualitySettings.SetQualityLevel(0);
+        }
+        if(QualitySettingSlider.value == 1){
+            PlayerPrefs.SetString("Quality", "Low");
+            QualitySettings.SetQualityLevel(1);
+        }
+        if(QualitySettingSlider.value == 2){
+            PlayerPrefs.SetString("Quality", "Medium");
+            QualitySettings.SetQualityLevel(2);
+        }
+        if(QualitySettingSlider.value == 3){
+            PlayerPrefs.SetString("Quality", "High");
+            QualitySettings.SetQualityLevel(3);
+        }
+        if(QualitySettingSlider.value == 4){
+            PlayerPrefs.SetString("Quality", "Very High");
+            QualitySettings.SetQualityLevel(4);
+        }
+        if(QualitySettingSlider.value == 5){
+            PlayerPrefs.SetString("Quality", "Ultra");
+            QualitySettings.SetQualityLevel(5);
+        }
     }
 
     public void OnClickChangeToLevelChoose(){
@@ -434,6 +461,14 @@ public class ButtonControl : MonoBehaviour
             CanClick = false;
             ClickButtonAudioSource.PlayOneShot(ClickButtonSound);
             SceneManager.LoadSceneAsync("Infinite Level");
+        }
+    }
+
+    public void OnClickChangeToQuickLevel(){
+        if(CanClick){
+            CanClick = false;
+            ClickButtonAudioSource.PlayOneShot(ClickButtonSound);
+            SceneManager.LoadSceneAsync("Quick Level");
         }
     }
 }

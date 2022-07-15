@@ -7,6 +7,10 @@ public class PlayerSetting : MonoBehaviour
 {
     public string ThisScene;
     public Slider QualitySettingSlider;
+
+    public bool CanUpdateQuality;
+    public int LastValue;
+    public int NowValue;
     void Start()
     {
         if(ThisScene == "Awake Game"){
@@ -68,37 +72,6 @@ public class PlayerSetting : MonoBehaviour
                     QualitySettings.SetQualityLevel(5);
                     QualitySettingSlider.value = 5;
                 }
-            }
-        }
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        if(ThisScene == "ChooseLevel"){
-            if(QualitySettingSlider.value == 0){
-                PlayerPrefs.SetString("Quality", "Very Low");
-                QualitySettings.SetQualityLevel(0);
-            }
-            if(QualitySettingSlider.value == 1){
-                PlayerPrefs.SetString("Quality", "Low");
-                QualitySettings.SetQualityLevel(1);
-            }
-            if(QualitySettingSlider.value == 2){
-                PlayerPrefs.SetString("Quality", "Medium");
-                QualitySettings.SetQualityLevel(2);
-            }
-            if(QualitySettingSlider.value == 3){
-                PlayerPrefs.SetString("Quality", "High");
-                QualitySettings.SetQualityLevel(3);
-            }
-            if(QualitySettingSlider.value == 4){
-                PlayerPrefs.SetString("Quality", "Very High");
-                QualitySettings.SetQualityLevel(4);
-            }
-            if(QualitySettingSlider.value == 5){
-                PlayerPrefs.SetString("Quality", "Ultra");
-                QualitySettings.SetQualityLevel(5);
             }
         }
     }

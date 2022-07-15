@@ -176,4 +176,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Infinite Level.unity
     guid: 8fdeed3a18bc8dd4aab7eb2b194f5f3e
+  - enabled: 1
+    path: Assets/Scenes/Quick Level.unity
+    guid: c96eb0fa09d1e3840b43ba53f4f6eb4b
   m_configObjects: {}

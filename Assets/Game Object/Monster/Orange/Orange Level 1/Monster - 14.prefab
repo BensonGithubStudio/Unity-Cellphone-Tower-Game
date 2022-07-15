@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 1957396716600211412}
   m_Layer: 10
   m_Name: Image
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -100,7 +100,7 @@ GameObject:
   - component: {fileID: 5201807850952044985}
   m_Layer: 10
   m_Name: Image
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -170,9 +170,9 @@ GameObject:
   - component: {fileID: 3246077857070246704}
   - component: {fileID: 3246077857068919568}
   - component: {fileID: 3246077857067952592}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Body
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -247,9 +247,9 @@ GameObject:
   - component: {fileID: 3246077857070246706}
   - component: {fileID: 3246077857068919570}
   - component: {fileID: 3246077857067952594}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Around
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -326,9 +326,9 @@ GameObject:
   - component: {fileID: 3839395514935851205}
   - component: {fileID: 2798649657572120460}
   - component: {fileID: 6182018845953771406}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Monster - 14
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -415,6 +415,7 @@ MonoBehaviour:
   index: 0
   speed: 10
   MinusHeart: 1
+  DontMove: 0
 --- !u!114 &2798649657572120460
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -553,9 +554,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7774325240102499182}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Body
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

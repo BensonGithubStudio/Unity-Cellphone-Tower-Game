@@ -2133,6 +2133,7 @@ MonoBehaviour:
   CanClick: 0
   SettingAnimator: {fileID: 0}
   SettingImage: {fileID: 0}
+  QualitySettingSlider: {fileID: 0}
   ClickButtonAudioSource: {fileID: 873508307}
   ClickButtonSound: {fileID: 8300000, guid: 50cbec5faebd984459cbfbb68070ecf2, type: 3}
   BackgroundAudioSource: {fileID: 0}
@@ -2267,6 +2268,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ThisScene: Awake Game
   QualitySettingSlider: {fileID: 0}
+  CanUpdateQuality: 0
+  LastValue: 0
+  NowValue: 0
 --- !u!1 &115234228
 GameObject:
   m_ObjectHideFlags: 0
@@ -19738,8 +19742,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1353833426}
-  m_LocalRotation: {x: -0.2723114, y: 0.061785236, z: 0.01752874, w: 0.96006346}
-  m_LocalPosition: {x: 264.59778, y: -119.592514, z: -165.4375}
+  m_LocalRotation: {x: -0.1911025, y: 0.03126412, z: 0.0060942792, w: 0.9810532}
+  m_LocalPosition: {x: 318.0236, y: -54.52864, z: -110.51618}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -40951,7 +40955,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400006, guid: b544816461f324e56a39767fdeb5b114, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -10
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 400006, guid: b544816461f324e56a39767fdeb5b114, type: 3}
       propertyPath: m_LocalPosition.z

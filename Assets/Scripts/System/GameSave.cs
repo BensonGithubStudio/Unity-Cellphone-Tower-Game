@@ -14,9 +14,17 @@ public class GameSave : MonoBehaviour
     public GameObject [] GrayLevel;
     public GameObject [] OrangeLevel;
 
+    public GameObject IntroduceUI;
+    public float IntroduceUIExitTime;
+
     // Start is called before the first frame update
     void Start()
     {
+        if(!PlayerPrefs.HasKey("HavePlayed")){
+            IntroduceUI.SetActive(true);
+            Invoke("HavePlayedGame",IntroduceUIExitTime);
+        }
+
         if(PlayerPrefs.HasKey("Level 1")){
             Level[2].SetActive(false);
         }
@@ -186,12 +194,17 @@ public class GameSave : MonoBehaviour
         
     }
 
+    void HavePlayedGame(){
+        IntroduceUI.SetActive(false);
+        PlayerPrefs.SetString("HavePlayed","true");
+    }
+
     public void OnClickCleanDataAssure(){
         CleanDataAssure.SetActive(true);
     }
     public void OnClickCleanData(){
         PlayerPrefs.DeleteAll();
-        //畫質設定
+        //PlayerPrefs.SetString("Quality", "Medium");
         SceneManager.LoadScene("Waiting In Game");
     }
     public void OnClickCancelCleanData(){

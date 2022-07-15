@@ -1291,8 +1291,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MoveSpeed: 10
   RotateSpeed: 90
-  Monster: {fileID: 0}
-  FinalPosition: {fileID: 0}
+  Monster: {fileID: 6860039525388456147}
+  FinalPosition: {fileID: 5948245569838690547, guid: 7bda77955a3f23f4cbbe6b662c78b095,
+    type: 3}
   CanMove: 0
 --- !u!1 &7544636376646067201
 GameObject:
