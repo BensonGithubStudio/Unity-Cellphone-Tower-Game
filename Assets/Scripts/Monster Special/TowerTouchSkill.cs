@@ -10,6 +10,12 @@ public class TowerTouchSkill : MonoBehaviour
     [Header("向下掃射管理")]
     public GameObject Smoke;
     public GameObject ThisTower;
+    public GameObject TowerDestroyWarm;
+
+    [Header("暈眩管理")]
+    public float TowerDizzyTime;
+    public GameObject TowerDizzyObject;
+    public float TowerShootSpeed;
 
     void OnTriggerEnter(Collider other) {
         if(other.gameObject.tag == "Freezon"){
@@ -19,29 +25,47 @@ public class TowerTouchSkill : MonoBehaviour
             Smoke.SetActive(true);
             Invoke("DestroyThisTower", 1);
         }
+        if(other.gameObject.tag == "Dizzy"){
+            TowerDizzyTime = 2f;
+        }
     }
 
     void DestroyThisTower(){
+        TowerDestroyWarm.SetActive(false);
+        TowerDestroyWarm.SetActive(true);
         Destroy(ThisTower);
     }
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        TowerDestroyWarm = GameObject.Find("Tower Destroy Warm");
+        TowerDestroyWarm.SetActive(false);
+        TowerShootSpeed = this.gameObject.GetComponent<TowerShoot>().ShootSpeed;
     }
 
     // Update is called once per frame
     void Update()
     {
         TowerFreezonTime -= Time.deltaTime;
+        TowerDizzyTime -= Time.deltaTime;
 
+        //砲塔被冰凍
         if(TowerFreezonTime >= 0){
             this.gameObject.GetComponent<TowerShoot>().IsRun = false;
             FreezonObject.SetActive(true);
         }else{
             this.gameObject.GetComponent<TowerShoot>().IsRun = true;
             FreezonObject.SetActive(false);
+        }
+
+        //砲塔被暈眩
+        if(TowerDizzyTime >= 0){
+            this.gameObject.GetComponent<TowerShoot>().ShootSpeed = TowerShootSpeed * 2;
+            TowerDizzyObject.SetActive(true);
+        }else{
+            this.gameObject.GetComponent<TowerShoot>().ShootSpeed = TowerShootSpeed;
+            TowerDizzyObject.SetActive(false);
         }
     }
 }

@@ -268,6 +268,7 @@ GameObject:
   - component: {fileID: 8421761685519251350}
   - component: {fileID: 114111431028912788}
   - component: {fileID: 54694844904941146}
+  - component: {fileID: 4987958656816935160}
   m_Layer: 10
   m_Name: Monster - 13
   m_TagString: Enemy
@@ -339,7 +340,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   GameControlGameObject: {fileID: 0}
   Hp: 0
-  MaxHp: 1000
+  MaxHp: 100000000
   BloodBar: {fileID: 5535905917857181755}
   EarnMoney: 5
 --- !u!65 &8421761685519251350
@@ -368,6 +369,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PlusSpeedCheckTime: 0
+  PlusHeartCheckTime: 0
 --- !u!54 &54694844904941146
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -384,6 +386,21 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 126
   m_CollisionDetection: 0
+--- !u!114 &4987958656816935160
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2457353843670949885}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3acc10e70b33fd443960b46b5789d8be, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  DizzyObject: {fileID: 5440871297646425524, guid: 73f986cd1258c564bb7c2201dae02a7d,
+    type: 3}
+  DizzyTime: 0
 --- !u!1 &3902240872679595460
 GameObject:
   m_ObjectHideFlags: 0

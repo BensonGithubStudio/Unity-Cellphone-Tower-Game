@@ -17,6 +17,7 @@ TagManager:
   - Plus Speed
   - Down Attack
   - Plus Heart
+  - Dizzy
   layers:
   - Default
   - TransparentFX
