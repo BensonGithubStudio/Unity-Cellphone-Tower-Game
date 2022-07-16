@@ -236,6 +236,7 @@ MonoBehaviour:
   MoveSpeed: 10
   RotateSpeed: 90
   Monster: {fileID: 6054195193580316072}
+  MonsterBody: {fileID: 6054195193580316076}
   FinalPosition: {fileID: 5948245569838690547, guid: 7bda77955a3f23f4cbbe6b662c78b095,
     type: 3}
   CanMove: 0
@@ -346,7 +347,7 @@ MonoBehaviour:
   Hp: 0
   MaxHp: 250
   BloodBar: {fileID: 377086844882036531}
-  EarnMoney: 15
+  EarnMoney: 5
 --- !u!65 &8210803732739348086
 BoxCollider:
   m_ObjectHideFlags: 0

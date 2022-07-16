@@ -1110,6 +1110,7 @@ MonoBehaviour:
   MoveSpeed: 10
   RotateSpeed: 90
   Monster: {fileID: 3387874032815194862}
+  MonsterBody: {fileID: 2638549439421848104}
   FinalPosition: {fileID: 5948245569838690547, guid: 7bda77955a3f23f4cbbe6b662c78b095,
     type: 3}
   CanMove: 0

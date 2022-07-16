@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class HeartControl : MonoBehaviour
 {
     public GameObject GameOverHint;
+    public GameObject TowerPosition;
     public bool CanCallAppearHint;
 
     public Text NowHaveHeartText;
@@ -35,5 +36,6 @@ public class HeartControl : MonoBehaviour
 
     void AppearGameOver (){
         GameOverHint.SetActive(true);
+        TowerPosition.SetActive(false);
     }
 }

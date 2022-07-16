@@ -436,12 +436,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   GameControlGameObject: {fileID: 0}
   positions:
-  - {fileID: 2267232028698929330, guid: 7ca02cc61299e5b44af22e07adc13973, type: 3}
-  - {fileID: 4247029531554067448, guid: 13cd5ba45a492264dac9413ead35d5a6, type: 3}
+  - {fileID: 1696517516123064852, guid: 80ca7476a70dd5241816830b1df43dcc, type: 3}
   index: 0
   speed: 15
   MinusHeart: 1
-  DontMove: 1
+  DontMove: 0
 --- !u!114 &7195179724616167061
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -458,7 +457,7 @@ MonoBehaviour:
   Hp: 0
   MaxHp: 550
   BloodBar: {fileID: 2089914655243330243}
-  EarnMoney: 20
+  EarnMoney: 5
 --- !u!65 &1820425014623768747
 BoxCollider:
   m_ObjectHideFlags: 0

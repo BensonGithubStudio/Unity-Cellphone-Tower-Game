@@ -13,6 +13,7 @@ TagManager:
   - Down Wall
   - Right Wall
   - Left Wall
+  - Freezon
   layers:
   - Default
   - TransparentFX
@@ -29,7 +30,7 @@ TagManager:
   - Meteorite
   - Tower
   - Check Point
-  - 
+  - Special Skill
   - 
   - 
   - 

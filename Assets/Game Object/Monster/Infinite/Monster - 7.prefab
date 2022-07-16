@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 4021930844244321633}
   - component: {fileID: 3134827270695285149}
   - component: {fileID: 1436375881371628757}
+  - component: {fileID: 1915096028}
   m_Layer: 10
   m_Name: Monster - 7
   m_TagString: Enemy
@@ -78,7 +79,7 @@ MonoBehaviour:
   Hp: 0
   MaxHp: 1000
   BloodBar: {fileID: 1460182028766713772}
-  EarnMoney: 20
+  EarnMoney: 5
 --- !u!65 &3134827270695285149
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -111,6 +112,21 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &1915096028
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 121677737902095272}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a52b1c2af1f5a1242a2f744f172a4638, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  FreezonObject: {fileID: 6302380674860820734, guid: 5797c8c4538393849aff2933e5d6a8fc,
+    type: 3}
+  FreezonTime: 0
 --- !u!1 &121677737902095276
 GameObject:
   m_ObjectHideFlags: 0

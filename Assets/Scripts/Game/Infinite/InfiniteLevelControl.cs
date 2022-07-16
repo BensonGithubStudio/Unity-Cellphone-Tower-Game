@@ -21,6 +21,8 @@ public class InfiniteLevelControl : MonoBehaviour
     public int NowWave;
     public GameObject WaveText;
     public GameObject TimeCountText;
+    public Text StartOrNextWaveText;
+    public Text SpeedUpText;
 
     // Start is called before the first frame update
     void Start()
@@ -38,10 +40,13 @@ public class InfiniteLevelControl : MonoBehaviour
         }
 
         if(CanNextWave){
-            EnemyBlood += 10;
+            CancelInvoke("DestroyWaveText");
+            CancelInvoke("MakeEnemy");
+            
+            EnemyBlood += 50;
             EnemyNumber = Random.Range(5, 30);
             EnemyKind = Random.Range(0, 14);
-            EnemyAppearTime = 30;
+            EnemyAppearTime = 20;
             TimeCountText.GetComponent<Text>().text = "距離下一波還有" + EnemyAppearTime + "秒";
 
             NowWave += 1;
@@ -62,9 +67,33 @@ public class InfiniteLevelControl : MonoBehaviour
         if(EnemyNumber >0){
             GameObject a = Instantiate(Monster[EnemyKind], AppearPosition.transform.position, Quaternion.identity);
             a.GetComponent<MonsterHpControl>().MaxHp = EnemyBlood;
+            a.GetComponent<MonsterHpControl>().EarnMoney += 5;
             EnemyNumber -= 1;
         }else{
             CancelInvoke("MakeEnemy");
+        }
+    }
+
+    public void OnClickNextWave(){
+        EnemyAppearTime = 0;
+        StartOrNextWaveText.text = "下一波";
+    }
+
+    public void OnClickPause(){
+        if(Time.timeScale == 1 || Time.timeScale == 2){
+            Time.timeScale = 0;
+        }else{
+            Time.timeScale = 1;
+        }
+    }
+
+    public void OnClickSpeedUp(){
+        if(Time.timeScale == 1){
+            Time.timeScale = 2;
+            SpeedUpText.text = "x1";
+        }else{
+            Time.timeScale = 1;
+            SpeedUpText.text = "x2";
         }
     }
 

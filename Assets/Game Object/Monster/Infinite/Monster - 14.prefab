@@ -28,9 +28,8 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 8085483213222122604}
-  - {fileID: 776954630247140033}
   m_Father: {fileID: 8085483213222122600}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &3592135237000652230
 GameObject:
@@ -44,9 +43,9 @@ GameObject:
   - component: {fileID: 6467436876391847225}
   - component: {fileID: 8140562575235413396}
   - component: {fileID: 5097170370662509633}
-  m_Layer: 10
+  m_Layer: 14
   m_Name: Check Point
-  m_TagString: Enemy
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -59,11 +58,11 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3592135237000652230}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 2.57, y: 0.4757, z: 0.12}
+  m_LocalPosition: {x: 2.5699997, y: 0.4757, z: 0.64000034}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 3952745563068976178}
-  m_RootOrder: 1
+  m_Father: {fileID: 8085483213222122600}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &6467436876391847225
 BoxCollider:
@@ -144,7 +143,7 @@ RectTransform:
   m_Children:
   - {fileID: 1328758874641664594}
   m_Father: {fileID: 8085483213222122600}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -329,6 +328,7 @@ Transform:
   m_LocalPosition: {x: 42.958607, y: 0, z: 12.885314}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
+  - {fileID: 776954630247140033}
   - {fileID: 3952745563068976178}
   - {fileID: 8085483213222122606}
   - {fileID: 4620278680900969218}
@@ -417,7 +417,7 @@ MonoBehaviour:
   Hp: 0
   MaxHp: 1000
   BloodBar: {fileID: 8739741948313024287}
-  EarnMoney: 35
+  EarnMoney: 5
 --- !u!65 &645136089615153362
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -538,7 +538,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 8085483213222122600}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &8085483213218731086
 MeshFilter:

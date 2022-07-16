@@ -169,7 +169,7 @@ MonoBehaviour:
   Hp: 0
   MaxHp: 1000
   BloodBar: {fileID: 4471979886232169450}
-  EarnMoney: 40
+  EarnMoney: 5
 --- !u!65 &2102296099273874190
 BoxCollider:
   m_ObjectHideFlags: 0
