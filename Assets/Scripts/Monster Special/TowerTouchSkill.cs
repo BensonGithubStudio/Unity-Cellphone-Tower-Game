@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class TowerTouchSkill : MonoBehaviour
 {
@@ -11,6 +12,7 @@ public class TowerTouchSkill : MonoBehaviour
     public GameObject Smoke;
     public GameObject ThisTower;
     public GameObject TowerDestroyWarm;
+    public GameObject TowerDestroyWarmText;
 
     [Header("暈眩管理")]
     public float TowerDizzyTime;
@@ -33,6 +35,7 @@ public class TowerTouchSkill : MonoBehaviour
     void DestroyThisTower(){
         TowerDestroyWarm.SetActive(false);
         TowerDestroyWarm.SetActive(true);
+        TowerDestroyWarmText.GetComponent<Text>().text = "我方砲塔被擊毀";
         Destroy(ThisTower);
     }
 
@@ -40,7 +43,7 @@ public class TowerTouchSkill : MonoBehaviour
     void Start()
     {
         TowerDestroyWarm = GameObject.Find("Tower Destroy Warm");
-        TowerDestroyWarm.SetActive(false);
+        TowerDestroyWarmText = GameObject.Find("Tower Destroy Warm Text");
         TowerShootSpeed = this.gameObject.GetComponent<TowerShoot>().ShootSpeed;
     }
 

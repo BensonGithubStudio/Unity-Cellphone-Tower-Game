@@ -327,6 +327,7 @@ GameObject:
   - component: {fileID: 9059679566557139059}
   - component: {fileID: 114969260037506904}
   - component: {fileID: 54323703334233710}
+  - component: {fileID: 5466144200095150856}
   m_Layer: 10
   m_Name: Monster - 9
   m_TagString: Enemy
@@ -349,6 +350,7 @@ Transform:
   - {fileID: 2120942150185475908}
   - {fileID: 6309026184483409112}
   - {fileID: 5515118650335896614}
+  - {fileID: 1585687271835089943}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -443,6 +445,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PlusSpeedCheckTime: 0
+  PlusHeartCheckTime: 0
 --- !u!54 &54323703334233710
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -459,6 +462,21 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 126
   m_CollisionDetection: 0
+--- !u!114 &5466144200095150856
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1548651212219314607}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ed8446f3263d99a45ae179b1b1010ea2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CloneMonster: {fileID: 1548651212219314607}
+  CloneMonsterPosition: {fileID: 4428383179382303029}
+  CanClone: 1
 --- !u!1 &2063620956287084921
 GameObject:
   m_ObjectHideFlags: 0
@@ -490,6 +508,36 @@ Transform:
   m_Father: {fileID: 1548651212218887567}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &4428383179382303029
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1585687271835089943}
+  m_Layer: 10
+  m_Name: Clone Position
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1585687271835089943
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4428383179382303029}
+  m_LocalRotation: {x: 0, y: 0.2588191, z: 0, w: 0.9659258}
+  m_LocalPosition: {x: 0, y: 0, z: -1.88}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1548651212218887567}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 30, z: 0}
 --- !u!1 &6660175832112767654
 GameObject:
   m_ObjectHideFlags: 0
