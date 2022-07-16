@@ -4,15 +4,25 @@ using UnityEngine;
 
 public class TowerTouchSkill : MonoBehaviour
 {
+    [Header("冰涷管理")]
     public float TowerFreezonTime;
     public GameObject FreezonObject;
+    [Header("向下掃射管理")]
+    public GameObject Smoke;
+    public GameObject ThisTower;
 
     void OnTriggerEnter(Collider other) {
-        print("1111");
         if(other.gameObject.tag == "Freezon"){
-            print("2222");
             TowerFreezonTime = 2f;
         }
+        if(other.gameObject.tag == "Down Attack"){
+            Smoke.SetActive(true);
+            Invoke("DestroyThisTower", 1);
+        }
+    }
+
+    void DestroyThisTower(){
+        Destroy(ThisTower);
     }
 
     // Start is called before the first frame update

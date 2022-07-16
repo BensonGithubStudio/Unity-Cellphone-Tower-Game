@@ -325,6 +325,8 @@ GameObject:
   - component: {fileID: 8130626811198579292}
   - component: {fileID: 2595611491886972642}
   - component: {fileID: 9059679566557139059}
+  - component: {fileID: 114969260037506904}
+  - component: {fileID: 54323703334233710}
   m_Layer: 10
   m_Name: Monster - 9
   m_TagString: Enemy
@@ -428,6 +430,35 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &114969260037506904
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1548651212219314607}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f742235fef745db4587df3d4cada0dc0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  PlusSpeedCheckTime: 0
+--- !u!54 &54323703334233710
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1548651212219314607}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 126
+  m_CollisionDetection: 0
 --- !u!1 &2063620956287084921
 GameObject:
   m_ObjectHideFlags: 0

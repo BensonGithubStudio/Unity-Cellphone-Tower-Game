@@ -14,6 +14,8 @@ TagManager:
   - Right Wall
   - Left Wall
   - Freezon
+  - Plus Speed
+  - Down Attack
   layers:
   - Default
   - TransparentFX

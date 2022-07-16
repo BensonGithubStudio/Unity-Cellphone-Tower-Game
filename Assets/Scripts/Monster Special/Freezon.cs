@@ -11,7 +11,7 @@ public class Freezon : MonoBehaviour
     void Start()
     {
         FreezonTime = Random.Range(10, 21);
-        InvokeRepeating("OpenSkill", 0, FreezonTime);
+        InvokeRepeating("OpenSkill", FreezonTime, FreezonTime);
     }
 
     void OpenSkill (){
