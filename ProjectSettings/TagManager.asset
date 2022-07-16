@@ -16,6 +16,7 @@ TagManager:
   - Freezon
   - Plus Speed
   - Down Attack
+  - Plus Heart
   layers:
   - Default
   - TransparentFX

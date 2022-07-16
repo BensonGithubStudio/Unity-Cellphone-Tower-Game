@@ -65389,9 +65389,9 @@ MonoBehaviour:
   EnemyKind9: {fileID: 4983622591983670053, guid: 0b388b5eaaad00d438b3d686a1e9037c,
     type: 3}
   EnemyCount9: 30
-  EnemyKind10: {fileID: 8158883843663178336, guid: b3e82b3093d49c64285f8b4cef754b43,
+  EnemyKind10: {fileID: 9213443007915817347, guid: c6d61e8dbdd522d4c8ae071ea5f3bac7,
     type: 3}
-  EnemyKind10_1: {fileID: 2764052753981063495, guid: a5a071dc01abb5d498312f44096ad085,
+  EnemyKind10_1: {fileID: 6947396615204097657, guid: 89d185525744c14469636f95ae819910,
     type: 3}
   EnemyCount10: 20
   EnemyKind11: {fileID: 9213443007915817347, guid: c6d61e8dbdd522d4c8ae071ea5f3bac7,
@@ -65507,6 +65507,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   GameOverHint: {fileID: 1789046996}
+  TowerPosition: {fileID: 0}
   CanCallAppearHint: 0
   NowHaveHeartText: {fileID: 1065673508}
   Heart: 20

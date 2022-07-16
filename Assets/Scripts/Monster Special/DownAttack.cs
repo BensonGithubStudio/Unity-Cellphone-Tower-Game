@@ -12,7 +12,7 @@ public class DownAttack : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        AttackTime = Random.Range(2, 10);
+        AttackTime = Random.Range(2, 15);
         AttackAngle = Random.Range(0f, 361f);
         InvokeRepeating("OpenSkill", AttackTime, AttackTime);
     }

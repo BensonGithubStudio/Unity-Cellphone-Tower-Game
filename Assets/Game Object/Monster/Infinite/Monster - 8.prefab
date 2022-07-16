@@ -87,6 +87,7 @@ GameObject:
   - component: {fileID: 7597324342977645020}
   - component: {fileID: 114127669081741888}
   - component: {fileID: 54606165961856884}
+  - component: {fileID: 7220652974426004387}
   m_Layer: 10
   m_Name: Monster - 8
   m_TagString: Enemy
@@ -225,6 +226,24 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 126
   m_CollisionDetection: 0
+--- !u!114 &7220652974426004387
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4455059571340041033}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f29a2f498966617499ad490780128eb8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  PositionX: 0
+  PositionZ: 0
+  GoUnderGroundTime: 0
+  CanUnder: 0
+  UnderSmoke: {fileID: 976258203235176912, guid: 9624af56de5dda440ad8b56e5b9811ee,
+    type: 3}
 --- !u!1 &4455059571340041035
 GameObject:
   m_ObjectHideFlags: 0

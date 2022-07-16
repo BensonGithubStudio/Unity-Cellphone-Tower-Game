@@ -5,6 +5,7 @@ using UnityEngine;
 public class MonsterTouchSkill : MonoBehaviour
 {
     public float PlusSpeedCheckTime;
+    public float PlusHeartCheckTime;
 
     void OnTriggerEnter(Collider other) {
         if(other.gameObject.tag == "Plus Speed"){
@@ -15,9 +16,18 @@ public class MonsterTouchSkill : MonoBehaviour
                 }
             }
         }
+        if(other.gameObject.tag == "Plus Heart"){
+            if(this.gameObject.GetComponent<MonsterHpControl>().Hp < this.gameObject.GetComponent<MonsterHpControl>().MaxHp / 2){
+                if(PlusHeartCheckTime  < 0){
+                    this.gameObject.GetComponent<MonsterHpControl>().Hp += (this.gameObject.GetComponent<MonsterHpControl>().MaxHp / 2);
+                    PlusHeartCheckTime = 1;
+                }
+            }
+        }
     }
 
     void Update(){
         PlusSpeedCheckTime -= Time.deltaTime;
+        PlusHeartCheckTime -= Time.deltaTime;
     }
 }
