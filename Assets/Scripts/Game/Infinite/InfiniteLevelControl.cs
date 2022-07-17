@@ -15,6 +15,10 @@ public class InfiniteLevelControl : MonoBehaviour
     public int EnemyKind;
     public float EnemyNumber;
     public int EnemyBlood;
+    public int GetMoney;
+
+    [Header("動畫管理")]
+    public Animator MonsterIntroduceAnimator;
 
     [Header("其他資訊管理")]
     public bool CanNextWave;
@@ -23,6 +27,8 @@ public class InfiniteLevelControl : MonoBehaviour
     public GameObject TimeCountText;
     public Text StartOrNextWaveText;
     public Text SpeedUpText;
+    public GameObject PauseImage;
+    public GameObject StartImage;
 
     // Start is called before the first frame update
     void Start()
@@ -43,11 +49,15 @@ public class InfiniteLevelControl : MonoBehaviour
             CancelInvoke("DestroyWaveText");
             CancelInvoke("MakeEnemy");
             
-            EnemyBlood += 50;
+            EnemyBlood += 200;
+            GetMoney += 5;
             EnemyNumber = Random.Range(5, 30);
             EnemyKind = Random.Range(0, 14);
-            EnemyAppearTime = 20;
+            EnemyAppearTime = 30;
             TimeCountText.GetComponent<Text>().text = "距離下一波還有" + EnemyAppearTime + "秒";
+
+            MonsterIntroduceAnimator.SetInteger("NowMonster", EnemyKind + 1);
+            Invoke("CancelIntroduceUIAnimation", 5);
 
             NowWave += 1;
             WaveText.SetActive(false);
@@ -59,6 +69,10 @@ public class InfiniteLevelControl : MonoBehaviour
         }
     }
 
+    void CancelIntroduceUIAnimation(){
+        MonsterIntroduceAnimator.SetInteger("NowMonster", 0);
+    }
+
     void DestroyWaveText(){
         WaveText.SetActive(false);
     }
@@ -67,7 +81,7 @@ public class InfiniteLevelControl : MonoBehaviour
         if(EnemyNumber >0){
             GameObject a = Instantiate(Monster[EnemyKind], AppearPosition.transform.position, Quaternion.identity);
             a.GetComponent<MonsterHpControl>().MaxHp = EnemyBlood;
-            a.GetComponent<MonsterHpControl>().EarnMoney += 5;
+            a.GetComponent<MonsterHpControl>().EarnMoney = GetMoney;
             EnemyNumber -= 1;
         }else{
             CancelInvoke("MakeEnemy");
@@ -82,8 +96,13 @@ public class InfiniteLevelControl : MonoBehaviour
     public void OnClickPause(){
         if(Time.timeScale == 1 || Time.timeScale == 2){
             Time.timeScale = 0;
+            PauseImage.SetActive(false);
+            StartImage.SetActive(true);
         }else{
             Time.timeScale = 1;
+            StartImage.SetActive(false);
+            PauseImage.SetActive(true);
+            SpeedUpText.text = "x2";
         }
     }
 
@@ -91,7 +110,7 @@ public class InfiniteLevelControl : MonoBehaviour
         if(Time.timeScale == 1){
             Time.timeScale = 2;
             SpeedUpText.text = "x1";
-        }else{
+        }else if(Time.timeScale == 2){
             Time.timeScale = 1;
             SpeedUpText.text = "x2";
         }

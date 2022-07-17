@@ -24,6 +24,7 @@ public class TowerTouchSkill : MonoBehaviour
             TowerFreezonTime = 2f;
         }
         if(other.gameObject.tag == "Down Attack"){
+            Smoke.SetActive(false);
             Smoke.SetActive(true);
             Invoke("DestroyThisTower", 1);
         }
@@ -35,8 +36,13 @@ public class TowerTouchSkill : MonoBehaviour
     void DestroyThisTower(){
         TowerDestroyWarm.SetActive(false);
         TowerDestroyWarm.SetActive(true);
-        TowerDestroyWarmText.GetComponent<Text>().text = "我方砲塔被擊毀";
-        Destroy(ThisTower);
+        if(ThisTower.GetComponentInChildren<TowerShoot>().TowerLevel <= 10){
+            TowerDestroyWarmText.GetComponent<Text>().text = "我方砲塔被擊毀";
+            Destroy(ThisTower);
+        }else if(ThisTower.GetComponentInChildren<TowerShoot>().TowerLevel > 10){
+            TowerDestroyWarmText.GetComponent<Text>().text = "我方砲塔被降級";
+            ThisTower.GetComponentInChildren<TowerShoot>().TowerLevel -= 10;
+        }
     }
 
     // Start is called before the first frame update

@@ -14,7 +14,7 @@ public class GoUnderGround : MonoBehaviour
     void Start()
     {
         CanUnder = false;
-        GoUnderGroundTime = Random.Range(10, 20);
+        GoUnderGroundTime = Random.Range(10, 21);
         InvokeRepeating("OpenSkill", GoUnderGroundTime, GoUnderGroundTime);
     }
 

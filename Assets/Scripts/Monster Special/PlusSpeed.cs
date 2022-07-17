@@ -10,7 +10,7 @@ public class PlusSpeed : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        PlusSpeedTime = Random.Range(10, 20);
+        PlusSpeedTime = Random.Range(10, 21);
         InvokeRepeating("OpenSkill", PlusSpeedTime, PlusSpeedTime);
     }
 
