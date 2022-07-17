@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class MonsterTouchSkill : MonoBehaviour
 {
@@ -9,9 +10,9 @@ public class MonsterTouchSkill : MonoBehaviour
 
     void OnTriggerEnter(Collider other) {
         if(other.gameObject.tag == "Plus Speed"){
-            if(this.gameObject.GetComponent<MonsterMove>().speed <= 25){
+            if(this.gameObject.GetComponent<NavMeshAgent>().speed <= 25){
                 if(PlusSpeedCheckTime < 0){
-                    this.gameObject.GetComponent<MonsterMove>().speed  += 5;
+                    this.gameObject.GetComponent<NavMeshAgent>().speed += 5;
                     PlusSpeedCheckTime = 1;
                 }
             }

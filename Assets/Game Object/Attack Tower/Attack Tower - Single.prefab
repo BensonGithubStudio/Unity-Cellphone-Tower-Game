@@ -15671,6 +15671,7 @@ MonoBehaviour:
   Smoke: {fileID: 1469884984830094892}
   ThisTower: {fileID: 5359147877763687711}
   TowerDestroyWarm: {fileID: 0}
+  TowerDestroyWarmText: {fileID: 0}
   TowerDizzyTime: 0
   TowerDizzyObject: {fileID: 6228818085144702552}
   TowerShootSpeed: 0

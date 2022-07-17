@@ -56,6 +56,7 @@ public class InfiniteLevelControl : MonoBehaviour
             EnemyAppearTime = 30;
             TimeCountText.GetComponent<Text>().text = "距離下一波還有" + EnemyAppearTime + "秒";
 
+            MonsterIntroduceAnimator.SetInteger("NowMonster", 0);
             MonsterIntroduceAnimator.SetInteger("NowMonster", EnemyKind + 1);
             Invoke("CancelIntroduceUIAnimation", 5);
 
@@ -96,23 +97,16 @@ public class InfiniteLevelControl : MonoBehaviour
     public void OnClickPause(){
         if(Time.timeScale == 1 || Time.timeScale == 2){
             Time.timeScale = 0;
-            PauseImage.SetActive(false);
-            StartImage.SetActive(true);
         }else{
             Time.timeScale = 1;
-            StartImage.SetActive(false);
-            PauseImage.SetActive(true);
-            SpeedUpText.text = "x2";
         }
     }
 
     public void OnClickSpeedUp(){
         if(Time.timeScale == 1){
             Time.timeScale = 2;
-            SpeedUpText.text = "x1";
         }else if(Time.timeScale == 2){
             Time.timeScale = 1;
-            SpeedUpText.text = "x2";
         }
     }
 
@@ -123,6 +117,20 @@ public class InfiniteLevelControl : MonoBehaviour
             CanNextWave = true;
         }else{
             CanNextWave = false;
+        }
+
+        if(Time.timeScale == 0){
+            PauseImage.SetActive(false);
+            StartImage.SetActive(true);
+            SpeedUpText.text = " ";
+        }else if(Time.timeScale == 1){
+            StartImage.SetActive(false);
+            PauseImage.SetActive(true);
+            SpeedUpText.text = "x2";
+        }else{
+            StartImage.SetActive(false);
+            PauseImage.SetActive(true);
+            SpeedUpText.text = "x1";
         }
     }
 }
