@@ -11060,7 +11060,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 17.157288, y: -10}
+  m_AnchoredPosition: {x: 17.157227, y: -10}
   m_SizeDelta: {x: 51.52527, y: 27.22229}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &296353358
@@ -65362,6 +65362,7 @@ MonoBehaviour:
   WaveStartButtonText: {fileID: 609591784}
   WaveHintText: {fileID: 354572377}
   GameWinHint: {fileID: 1448710766}
+  TowerPosition: {fileID: 124680671}
   EnemyKind1: {fileID: 9213443007915817347, guid: c6d61e8dbdd522d4c8ae071ea5f3bac7,
     type: 3}
   EnemyCount1: 10
@@ -65507,7 +65508,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   GameOverHint: {fileID: 1789046996}
-  TowerPosition: {fileID: 0}
+  TowerPosition: {fileID: 124680671}
   CanCallAppearHint: 0
   NowHaveHeartText: {fileID: 1065673508}
   Heart: 20

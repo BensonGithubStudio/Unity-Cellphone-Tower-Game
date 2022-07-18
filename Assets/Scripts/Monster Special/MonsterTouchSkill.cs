@@ -7,6 +7,7 @@ public class MonsterTouchSkill : MonoBehaviour
 {
     public float PlusSpeedCheckTime;
     public float PlusHeartCheckTime;
+    public float MinusMoneyCheckTime;
 
     void OnTriggerEnter(Collider other) {
         if(other.gameObject.tag == "Plus Speed"){
@@ -25,10 +26,19 @@ public class MonsterTouchSkill : MonoBehaviour
                 }
             }
         }
+        if(other.gameObject.tag == "Minus Money"){
+            if(this.gameObject.GetComponent<MonsterHpControl>().EarnMoney > 50){
+                if(MinusMoneyCheckTime < 0){
+                    this.gameObject.GetComponent<MonsterHpControl>().EarnMoney -= 50;
+                    MinusMoneyCheckTime = 1;
+                }
+            }
+        }
     }
 
     void Update(){
         PlusSpeedCheckTime -= Time.deltaTime;
         PlusHeartCheckTime -= Time.deltaTime;
+        MinusMoneyCheckTime -= Time.deltaTime;
     }
 }

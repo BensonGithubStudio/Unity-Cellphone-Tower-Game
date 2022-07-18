@@ -11,6 +11,8 @@ public class InfiniteLevelControl : MonoBehaviour
 
     [Header("關卡管理")]
     public GameObject AppearPosition;
+    public AudioSource AirPlaneAudioSource;
+    public AudioClip AirplaneSound;
     public int EnemyAppearTime;
     public int EnemyKind;
     public float EnemyNumber;
@@ -49,10 +51,13 @@ public class InfiniteLevelControl : MonoBehaviour
             CancelInvoke("DestroyWaveText");
             CancelInvoke("MakeEnemy");
             
-            EnemyBlood += 200;
+            EnemyBlood += 350;
             GetMoney += 5;
             EnemyNumber = Random.Range(5, 30);
             EnemyKind = Random.Range(0, 14);
+            if(EnemyKind == 4){
+                AirPlaneAudioSource.PlayOneShot(AirplaneSound);
+            }
             EnemyAppearTime = 30;
             TimeCountText.GetComponent<Text>().text = "距離下一波還有" + EnemyAppearTime + "秒";
 
@@ -81,7 +86,15 @@ public class InfiniteLevelControl : MonoBehaviour
     void MakeEnemy(){
         if(EnemyNumber >0){
             GameObject a = Instantiate(Monster[EnemyKind], AppearPosition.transform.position, Quaternion.identity);
-            a.GetComponent<MonsterHpControl>().MaxHp = EnemyBlood;
+            if(EnemyKind == 2){
+                a.GetComponent<MonsterHpControl>().MaxHp = (EnemyBlood / 2);
+            }else if(EnemyKind == 4){
+                a.GetComponent<MonsterHpControl>().MaxHp = (EnemyBlood / 4);
+            }else if(EnemyKind == 8){
+                a.GetComponent<MonsterHpControl>().MaxHp = (EnemyBlood / 2);
+            }else{
+                a.GetComponent<MonsterHpControl>().MaxHp = EnemyBlood;
+            }
             a.GetComponent<MonsterHpControl>().EarnMoney = GetMoney;
             EnemyNumber -= 1;
         }else{
@@ -90,8 +103,10 @@ public class InfiniteLevelControl : MonoBehaviour
     }
 
     public void OnClickNextWave(){
-        EnemyAppearTime = 0;
-        StartOrNextWaveText.text = "下一波";
+        if(EnemyNumber <=0 ){
+            EnemyAppearTime = 0;
+            StartOrNextWaveText.text = "下一波";
+        }
     }
 
     public void OnClickPause(){

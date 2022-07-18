@@ -10,7 +10,7 @@ public class Freezon : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        FreezonTime = Random.Range(10, 21);
+        FreezonTime = Random.Range(2, 21);
         InvokeRepeating("OpenSkill", FreezonTime, FreezonTime);
     }
 

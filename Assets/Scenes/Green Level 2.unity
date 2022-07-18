@@ -77682,6 +77682,7 @@ MonoBehaviour:
   WaveStartButtonText: {fileID: 609591784}
   WaveHintText: {fileID: 354572377}
   GameWinHint: {fileID: 1448710766}
+  TowerPosition: {fileID: 124680671}
   EnemyKind1: {fileID: 8095834269822449957, guid: 5d35020d1e633de4f953a90cbc84942c,
     type: 3}
   EnemyCount1: 2
@@ -77806,6 +77807,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   GameOverHint: {fileID: 1789046996}
+  TowerPosition: {fileID: 124680671}
   CanCallAppearHint: 0
   NowHaveHeartText: {fileID: 1065673508}
   Heart: 20
@@ -77919,6 +77921,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ThisScene: Green
   QualitySettingSlider: {fileID: 0}
+  CanUpdateQuality: 0
+  LastValue: 0
+  NowValue: 0
 --- !u!1 &1747654052
 GameObject:
   m_ObjectHideFlags: 0

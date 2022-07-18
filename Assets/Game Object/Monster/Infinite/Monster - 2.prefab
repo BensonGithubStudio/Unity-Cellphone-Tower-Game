@@ -314,6 +314,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PlusSpeedCheckTime: 0
   PlusHeartCheckTime: 0
+  MinusMoneyCheckTime: 0
 --- !u!54 &54718411859943452
 Rigidbody:
   m_ObjectHideFlags: 0

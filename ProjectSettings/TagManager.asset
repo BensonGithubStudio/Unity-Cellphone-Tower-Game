@@ -18,6 +18,7 @@ TagManager:
   - Down Attack
   - Plus Heart
   - Dizzy
+  - Minus Money
   layers:
   - Default
   - TransparentFX

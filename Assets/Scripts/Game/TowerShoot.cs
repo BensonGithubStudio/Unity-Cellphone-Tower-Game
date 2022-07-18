@@ -37,6 +37,7 @@ public class TowerShoot : MonoBehaviour
 		TowerLevel = 1;
 		UpgradeMoney = 200;
 		GameControlGameObject = GameObject.Find("Game Control");
+		TowerAudioSource = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -45,8 +46,10 @@ public class TowerShoot : MonoBehaviour
 		if(IsRun){
         	ArmyAim();
 			ShootAudioSource.volume = ShootVolume;
-			TowerLevelInfoText.text = "Level " + TowerLevel;
-			UpgradeMoneyText.text = UpgradeMoney + "$";
+			if(TowerLevelInfoText != null && UpgradeMoneyText != null){
+				TowerLevelInfoText.text = "Level " + TowerLevel;
+				UpgradeMoneyText.text = UpgradeMoney + "$";
+			}
 		}
     }
 
@@ -94,15 +97,16 @@ public class TowerShoot : MonoBehaviour
 		if(IsRun){
 			GameObject b = Instantiate(Bullet, new Vector3(transform.position.x, transform.position.y + 0.6f, transform.position.z), Quaternion.Euler(0, transform.localEulerAngles.y, transform.localEulerAngles.z));
 			if(TheTower == "Single"){
-				b.GetComponent<SingleTowerBullet>().BulletStrong += TowerLevel * 50;
+				b.GetComponent<SingleTowerBullet>().BulletStrong += TowerLevel * (TowerLevel + 50);
 			}else if(TheTower == "Quick"){
-				b.GetComponent<QuickTowerBullet>().BulletStrong += TowerLevel * 30;
+				b.GetComponent<QuickTowerBullet>().BulletStrong += TowerLevel * (TowerLevel + 30);
 			}else if(TheTower == "Laser"){
-				b.GetComponentInChildren<LaserTowerBullet>().BulletStrong += TowerLevel * 60;
+				b.GetComponentInChildren<LaserTowerBullet>().BulletStrong += TowerLevel * (TowerLevel + 60);
 			}else if(TheTower == "Bomb"){
-				b.GetComponent<BombTowerBullet>().BulletStrong += TowerLevel * 40;
+				b.GetComponent<BombTowerBullet>().BulletStrong += TowerLevel * (TowerLevel + 40);
 			}
 			if(ShootAudioSource != null){
+				ShootAudioSource.priority = Random.Range(5, 257);
 				ShootAudioSource.PlayOneShot(ShootSound);
 			}
 			Destroy(b, DestroyTime);

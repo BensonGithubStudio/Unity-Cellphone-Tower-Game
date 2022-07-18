@@ -30,6 +30,7 @@ public class LevelMonsterControl : MonoBehaviour
     public Text WaveStartButtonText;
     public GameObject WaveHintText;
     public GameObject GameWinHint;
+    public GameObject TowerPosition;
 
     [Header("第一波")]
     public GameObject EnemyKind1;
@@ -163,6 +164,8 @@ public class LevelMonsterControl : MonoBehaviour
         CanCallNextWave = true;
         WaveHintText.SetActive(false);
         GameWinHint.SetActive(false);
+
+        TowerPosition = GameObject.Find("Tower Position");
     }
 
     public void OnClickWaveStart(){
@@ -181,6 +184,7 @@ public class LevelMonsterControl : MonoBehaviour
                     if(this.gameObject.GetComponent<HeartControl>().Heart > 0){
                         if(HaveEnemy == false){
                             GameWinHint.SetActive(true);
+                            TowerPosition.SetActive(false);
 
                             string a = this.gameObject.GetComponent<GameButton>().ThisScene;
                             PlayerPrefs.SetString(a, "IsWin");

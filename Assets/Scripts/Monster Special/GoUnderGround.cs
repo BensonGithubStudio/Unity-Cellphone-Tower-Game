@@ -18,7 +18,7 @@ public class GoUnderGround : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        GoUnderGroundTime = Random.Range(10, 21);
+        GoUnderGroundTime = Random.Range(2, 21);
         InvokeRepeating("OpenSkill", GoUnderGroundTime, GoUnderGroundTime);
     }
 
@@ -42,6 +42,7 @@ public class GoUnderGround : MonoBehaviour
         Left.SetActive(true);
         BloodObject.SetActive(true);
         GameObject a = Instantiate(UnderSmoke, transform.position, Quaternion.identity);
+        Destroy(a, 2);
         this.gameObject.GetComponent<NavMeshAgent>().speed = 10;
     }
 }

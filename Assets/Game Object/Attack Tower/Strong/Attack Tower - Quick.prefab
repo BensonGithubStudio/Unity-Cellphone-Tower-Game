@@ -5033,6 +5033,16 @@ MonoBehaviour:
   ShootSpeed: 0.05
   enemyTag: Enemy
   CanShoot: 0
+  IsRun: 0
+  GameControlGameObject: {fileID: 0}
+  UpgradeEffect: {fileID: 0}
+  TowerLevel: 0
+  TowerLevelInfoText: {fileID: 0}
+  UpgradeMoneyText: {fileID: 0}
+  UpgradeMoney: 0
+  TheTower: 
+  TowerAudioSource: {fileID: 0}
+  UpgradeSound: {fileID: 0}
 --- !u!82 &5759022745038411864
 AudioSource:
   m_ObjectHideFlags: 0
@@ -5382,6 +5392,8 @@ MonoBehaviour:
   TowerInfoUI: {fileID: 9098636181140031172}
   IsAppearInfo: 0
   TowerSellPrice: 75
+  SellTowerAudioSource: {fileID: 0}
+  SellTowerSound: {fileID: 8300000, guid: dc3cc5f0a3dbc214995dd1841669598c, type: 3}
 --- !u!1 &8176867117659445417
 GameObject:
   m_ObjectHideFlags: 0

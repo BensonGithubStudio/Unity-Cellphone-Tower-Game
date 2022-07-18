@@ -65,11 +65,12 @@ public class BuildTower : MonoBehaviour
         }else {
             this.gameObject.GetComponent<Renderer>().material.color = UnClickColor;
         }
-
-        if(CloneArmy == null){
-            this.gameObject.GetComponent<NavMeshObstacle>().enabled = false;
-        }else{
-            this.gameObject.GetComponent<NavMeshObstacle>().enabled = true;
+        if(GameControlGameObject.GetComponent<GameButton>().ThisScene == "Infinite Level"){
+            if(CloneArmy == null){
+                this.gameObject.GetComponent<NavMeshObstacle>().enabled = false;
+            }else{
+                this.gameObject.GetComponent<NavMeshObstacle>().enabled = true;
+            }
         }
     }
 

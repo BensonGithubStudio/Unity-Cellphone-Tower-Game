@@ -18,6 +18,8 @@ public class HeartControl : MonoBehaviour
     {
         GameOverHint.SetActive(false);
         CanCallAppearHint = true;
+
+        TowerPosition = GameObject.Find("Tower Position");
     }
 
     // Update is called once per frame
