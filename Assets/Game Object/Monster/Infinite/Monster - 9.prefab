@@ -367,6 +367,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PlusSpeedCheckTime: 0
   PlusHeartCheckTime: 0
+  MinusMoneyCheckTime: 0
 --- !u!54 &54323703334233710
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -414,7 +415,7 @@ NavMeshAgent:
   m_AngularSpeed: 120
   m_StoppingDistance: 0
   m_AutoTraverseOffMeshLink: 1
-  m_AutoBraking: 1
+  m_AutoBraking: 0
   m_AutoRepath: 1
   m_Height: 2
   m_BaseOffset: 0

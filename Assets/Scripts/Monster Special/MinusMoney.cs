@@ -10,7 +10,7 @@ public class MinusMoney : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        MinusMoneyTime = Random.Range(2, 21);
+        MinusMoneyTime = Random.Range(7, 21);
         InvokeRepeating("OpenSkill", MinusMoneyTime, MinusMoneyTime);
     }
 

@@ -18,7 +18,7 @@ public class GoUnderGround : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        GoUnderGroundTime = Random.Range(2, 21);
+        GoUnderGroundTime = Random.Range(7, 21);
         InvokeRepeating("OpenSkill", GoUnderGroundTime, GoUnderGroundTime);
     }
 

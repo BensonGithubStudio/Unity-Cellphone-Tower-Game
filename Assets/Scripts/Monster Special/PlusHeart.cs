@@ -10,7 +10,7 @@ public class PlusHeart : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        PlusHeartTime = Random.Range(2, 21);
+        PlusHeartTime = Random.Range(7, 21);
         InvokeRepeating("OpenSkill", PlusHeartTime, PlusHeartTime);
     }
 

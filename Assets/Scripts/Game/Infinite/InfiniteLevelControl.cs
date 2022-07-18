@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.AI;
 
 public class InfiniteLevelControl : MonoBehaviour
 {
@@ -22,8 +23,21 @@ public class InfiniteLevelControl : MonoBehaviour
     [Header("動畫管理")]
     public Animator MonsterIntroduceAnimator;
 
+    [Header("大招管理")]
+    public Image ColdImage;
+    public GameObject CleanMonsterSmoke;
+    public AudioSource BombAudioSource;
+    public AudioClip BombSound;
+
+    public Image FreezeColdImage;
+    public GameObject FreezeMonsterSmoke;
+    public AudioSource FreezeAudioSource;
+    public AudioClip FreezeSound;
+    public float FreezeSoundPitch;
+
     [Header("其他資訊管理")]
     public bool CanNextWave;
+    public bool CanPlusMoney;
     public int NowWave;
     public GameObject WaveText;
     public GameObject TimeCountText;
@@ -39,6 +53,7 @@ public class InfiniteLevelControl : MonoBehaviour
         InvokeRepeating("TimeCount", 0, 1);
         NowWave = 0;
         WaveText.SetActive(false);
+        CanPlusMoney = false;
     }
 
     void TimeCount(){
@@ -51,15 +66,26 @@ public class InfiniteLevelControl : MonoBehaviour
             CancelInvoke("DestroyWaveText");
             CancelInvoke("MakeEnemy");
             
-            EnemyBlood += 350;
+            if(NowWave <= 10){
+                EnemyBlood += 350;
+            }else if(NowWave <= 50){
+                EnemyBlood += 750;
+            }else if(NowWave <= 100){
+                EnemyBlood += 1600;
+            }else{
+                EnemyBlood += 3100;
+            }
             GetMoney += 5;
             EnemyNumber = Random.Range(5, 30);
             EnemyKind = Random.Range(0, 14);
             if(EnemyKind == 4){
+                AirPlaneAudioSource.pitch = 1;
                 AirPlaneAudioSource.PlayOneShot(AirplaneSound);
             }
             EnemyAppearTime = 30;
             TimeCountText.GetComponent<Text>().text = "距離下一波還有" + EnemyAppearTime + "秒";
+
+            CanPlusMoney = true;
 
             MonsterIntroduceAnimator.SetInteger("NowMonster", 0);
             MonsterIntroduceAnimator.SetInteger("NowMonster", EnemyKind + 1);
@@ -71,6 +97,7 @@ public class InfiniteLevelControl : MonoBehaviour
             WaveText.GetComponent<Text>().text = "第" + NowWave + "波";
             Invoke("DestroyWaveText", 2.5f);
             InvokeRepeating("MakeEnemy", 0, 0.5f);
+
             CanNextWave = false;
         }
     }
@@ -89,7 +116,13 @@ public class InfiniteLevelControl : MonoBehaviour
             if(EnemyKind == 2){
                 a.GetComponent<MonsterHpControl>().MaxHp = (EnemyBlood / 2);
             }else if(EnemyKind == 4){
-                a.GetComponent<MonsterHpControl>().MaxHp = (EnemyBlood / 4);
+                if(NowWave < 20){
+                    a.GetComponent<MonsterHpControl>().MaxHp = EnemyBlood;
+                }else if(NowWave < 50){
+                    a.GetComponent<MonsterHpControl>().MaxHp = (EnemyBlood / 2);
+                }else {
+                    a.GetComponent<MonsterHpControl>().MaxHp = (EnemyBlood / 4);
+                }
             }else if(EnemyKind == 8){
                 a.GetComponent<MonsterHpControl>().MaxHp = (EnemyBlood / 2);
             }else{
@@ -106,6 +139,50 @@ public class InfiniteLevelControl : MonoBehaviour
         if(EnemyNumber <=0 ){
             EnemyAppearTime = 0;
             StartOrNextWaveText.text = "下一波";
+        }
+    }
+
+    public void OnClickDestroyAllMonster(){
+        CleanMonsterSmoke.SetActive(false);
+        CleanMonsterSmoke.SetActive(true);
+        BombAudioSource.pitch = 1;
+        BombAudioSource.PlayOneShot(BombSound);
+
+        GameObject[] monsters = GameObject.FindGameObjectsWithTag("Enemy");
+        foreach(GameObject monster in monsters){
+            Destroy(monster);
+        }
+
+        ColdImage.fillAmount = 1;
+        ColdImage.raycastTarget = true;
+    }
+
+    public void OnClickFreezeAllMonster(){
+        FreezeMonsterSmoke.SetActive(false);
+        FreezeMonsterSmoke.SetActive(true);
+        FreezeAudioSource.pitch = FreezeSoundPitch;
+        FreezeAudioSource.PlayOneShot(FreezeSound);
+
+        GameObject[] monsters = GameObject.FindGameObjectsWithTag("Enemy");
+        foreach(GameObject monster in monsters){
+            if(monster.GetComponent<NavMeshAgent>() != null){
+                monster.GetComponent<NavMeshAgent>().speed = 0;
+            }
+        }
+
+        Invoke("MonsterSpeed", 5);
+        FreezeColdImage.fillAmount = 1;
+        FreezeColdImage.raycastTarget = true;
+    }
+
+    void MonsterSpeed(){
+        GameObject[] monsters = GameObject.FindGameObjectsWithTag("Enemy");
+        foreach(GameObject monster in monsters){
+            if(monster.GetComponent<NavMeshAgent>() != null){
+                if(monster.GetComponent<NavMeshAgent>().speed == 0){
+                    monster.GetComponent<NavMeshAgent>().speed = 10;
+                }
+            }
         }
     }
 
@@ -147,5 +224,33 @@ public class InfiniteLevelControl : MonoBehaviour
             PauseImage.SetActive(true);
             SpeedUpText.text = "x1";
         }
+
+        if(GameObject.FindGameObjectWithTag("Enemy") == null){
+            if(CanPlusMoney){
+                Invoke("PlusMoney", 1);
+                CanPlusMoney = false;
+            }
+        }
+
+
+        if(ColdImage.fillAmount > 0){
+            if(GameObject.FindGameObjectWithTag("Enemy") != null){
+                ColdImage.fillAmount -= 0.008f * Time.deltaTime;
+            }
+        }else{
+            ColdImage.raycastTarget = false;
+        }
+
+        if(FreezeColdImage.fillAmount > 0){
+            if(GameObject.FindGameObjectWithTag("Enemy") != null){
+                FreezeColdImage.fillAmount -= 0.008f * Time.deltaTime;
+            }
+        }else{
+            FreezeColdImage.raycastTarget = false;
+        }
+    }
+
+    void PlusMoney(){
+        this.gameObject.GetComponent<MoneyControl>().Money += (NowWave * 50);
     }
 }
