@@ -21,7 +21,7 @@ public class TowerShoot : MonoBehaviour
 	[Header("升級資訊")]
 	public GameObject GameControlGameObject;
 	public GameObject UpgradeEffect;
-	public float TowerLevel;
+	public int TowerLevel;
 	public Text TowerLevelInfoText;
 	public Text UpgradeMoneyText;
 	public int UpgradeMoney;

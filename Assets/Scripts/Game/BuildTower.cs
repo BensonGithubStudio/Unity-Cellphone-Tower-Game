@@ -9,6 +9,11 @@ public class BuildTower : MonoBehaviour
     public static bool IsBuying;
     public Color ClickColor;
     public Color UnClickColor;
+    public Color LowerLevel10Color;
+    public Color LowerLevel50Color;
+    public Color LowerLevel100Color;
+    public Color LowerLevel200Color;
+    public Color HigherLevel200Color;
 
     public GameObject GameControlGameObject;
     public GameObject BuyTowerInfo;
@@ -70,6 +75,21 @@ public class BuildTower : MonoBehaviour
                 this.gameObject.GetComponent<NavMeshObstacle>().enabled = false;
             }else{
                 this.gameObject.GetComponent<NavMeshObstacle>().enabled = true;
+            }
+        }
+
+        if(CloneArmy != null){
+            int a = CloneArmy.GetComponentInChildren<TowerShoot>().TowerLevel;
+            if(a <= 10){
+                this.gameObject.GetComponent<Renderer>().material.color = LowerLevel10Color;
+            }else if(a <= 50){
+                this.gameObject.GetComponent<Renderer>().material.color = LowerLevel50Color;
+            }else if(a <= 100){
+                this.gameObject.GetComponent<Renderer>().material.color = LowerLevel100Color;
+            }else if(a <= 200){
+                this.gameObject.GetComponent<Renderer>().material.color = LowerLevel200Color;
+            }else {
+                this.gameObject.GetComponent<Renderer>().material.color = HigherLevel200Color;
             }
         }
     }
