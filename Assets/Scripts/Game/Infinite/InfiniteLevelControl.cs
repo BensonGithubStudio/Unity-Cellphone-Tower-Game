@@ -51,9 +51,11 @@ public class InfiniteLevelControl : MonoBehaviour
     {
         EnemyAppearTime = 40;
         InvokeRepeating("TimeCount", 0, 1);
-        NowWave = 0;
         WaveText.SetActive(false);
         CanPlusMoney = false;
+        if(!PlayerPrefs.HasKey("InfiniteScene")){
+            NowWave = 0;
+        }
     }
 
     void TimeCount(){
@@ -69,11 +71,11 @@ public class InfiniteLevelControl : MonoBehaviour
             if(NowWave <= 10){
                 EnemyBlood += 350;
             }else if(NowWave <= 50){
-                EnemyBlood += 750;
+                EnemyBlood += 1000;
             }else if(NowWave <= 100){
-                EnemyBlood += 1600;
+                EnemyBlood += 2200;
             }else{
-                EnemyBlood += 3100;
+                EnemyBlood += 4000;
             }
             GetMoney += 5;
             EnemyNumber = Random.Range(5, 30);

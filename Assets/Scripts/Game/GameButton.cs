@@ -13,10 +13,36 @@ public class GameButton : MonoBehaviour
     public AudioSource ClickButtonAudioSource;
     public AudioClip ClickButtonSound;
 
-    public void OnClickExitGame(){
-        SceneManager.LoadScene("ChooseLevel");
+    public GameObject CloseGameAssure;
+    public GameObject TowerPosition;
+
+    public void OnClickCloseGameAssure(){
+        if(CloseGameAssure.activeSelf == false){
+            CloseGameAssure.SetActive(true);
+            Time.timeScale = 0;
+            TowerPosition.SetActive(false);
+        }else{
+            CloseGameAssure.SetActive(false);
+            Time.timeScale = 1;
+            TowerPosition.SetActive(true);
+        }
+    }
+    public void OnClickCloseGameAndSave(){
+        this.gameObject.GetComponent<InfiniteSceneSave>().SaveGame = true;
+        Time.timeScale = 1;
+    }
+    public void OnClickCloseGameAndDontSave(){
+        PlayerPrefs.DeleteKey("InfiniteScene");
         ClickButtonAudioSource.pitch = 1;
         ClickButtonAudioSource.PlayOneShot(ClickButtonSound);
+        Time.timeScale = 1;
+        SceneManager.LoadScene("ChooseLevel");
+    }
+
+    public void OnClickExitGame(){
+        ClickButtonAudioSource.pitch = 1;
+        ClickButtonAudioSource.PlayOneShot(ClickButtonSound);
+        SceneManager.LoadScene("ChooseLevel");
     }
     
     public void OnClickRestartGame(){
