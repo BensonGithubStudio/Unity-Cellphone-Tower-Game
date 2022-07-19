@@ -22,6 +22,8 @@ public class ButtonControl : MonoBehaviour
 
 
     void Start() {
+        Screen.sleepTimeout = SleepTimeout.NeverSleep;
+
         BackgroundVolume = 0;
         CanClick = true;
         if(SettingImage != null){

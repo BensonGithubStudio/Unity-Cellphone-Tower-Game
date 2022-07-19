@@ -177,6 +177,7 @@ GameObject:
   - component: {fileID: 54718411859943452}
   - component: {fileID: 195690791201797480}
   - component: {fileID: 4259214322397868403}
+  - component: {fileID: 114190822992670342}
   m_Layer: 10
   m_Name: Monster - 2
   m_TagString: Enemy
@@ -368,6 +369,19 @@ MonoBehaviour:
   MonsterAgent: {fileID: 195690791201797480}
   AIFinalPosition: {fileID: 5948245569838690547, guid: 7bda77955a3f23f4cbbe6b662c78b095,
     type: 3}
+--- !u!114 &114190822992670342
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6054195193580316072}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 64a27aecbdc32614eb6d033a8a4dc41a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ThisMonsterName: mon2
 --- !u!1 &6054195193580316076
 GameObject:
   m_ObjectHideFlags: 0

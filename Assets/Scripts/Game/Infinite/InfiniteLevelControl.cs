@@ -49,11 +49,11 @@ public class InfiniteLevelControl : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        EnemyAppearTime = 40;
         InvokeRepeating("TimeCount", 0, 1);
         WaveText.SetActive(false);
         CanPlusMoney = false;
         if(!PlayerPrefs.HasKey("InfiniteScene")){
+            EnemyAppearTime = 40;
             NowWave = 0;
         }
     }
@@ -113,7 +113,7 @@ public class InfiniteLevelControl : MonoBehaviour
     }
 
     void MakeEnemy(){
-        if(EnemyNumber >0){
+        if(EnemyNumber > 0){
             GameObject a = Instantiate(Monster[EnemyKind], AppearPosition.transform.position, Quaternion.identity);
             if(EnemyKind == 2){
                 a.GetComponent<MonsterHpControl>().MaxHp = (EnemyBlood / 2);
@@ -139,6 +139,7 @@ public class InfiniteLevelControl : MonoBehaviour
 
     public void OnClickNextWave(){
         if(EnemyNumber <=0 ){
+            PlayerPrefs.DeleteKey("InfiniteScene");
             EnemyAppearTime = 0;
             StartOrNextWaveText.text = "下一波";
         }

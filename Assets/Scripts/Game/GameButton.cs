@@ -16,6 +16,10 @@ public class GameButton : MonoBehaviour
     public GameObject CloseGameAssure;
     public GameObject TowerPosition;
 
+    void Start(){
+        Screen.sleepTimeout = SleepTimeout.NeverSleep;
+    }
+
     public void OnClickCloseGameAssure(){
         if(CloseGameAssure.activeSelf == false){
             CloseGameAssure.SetActive(true);
