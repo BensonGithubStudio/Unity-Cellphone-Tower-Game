@@ -153,8 +153,10 @@ public class InfiniteLevelControl : MonoBehaviour
 
         GameObject[] monsters = GameObject.FindGameObjectsWithTag("Enemy");
         foreach(GameObject monster in monsters){
-            this.gameObject.GetComponent<MoneyControl>().Money += monster.GetComponent<MonsterHpControl>().EarnMoney;
-            Destroy(monster);
+            if(monster.GetComponent<MonsterHpControl>() != null){
+                this.gameObject.GetComponent<MoneyControl>().Money += monster.GetComponent<MonsterHpControl>().EarnMoney;
+                Destroy(monster);
+            }
         }
 
         ColdImage.fillAmount = 1;
