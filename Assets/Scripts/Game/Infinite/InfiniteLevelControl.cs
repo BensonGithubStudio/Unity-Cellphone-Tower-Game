@@ -152,6 +152,7 @@ public class InfiniteLevelControl : MonoBehaviour
 
         GameObject[] monsters = GameObject.FindGameObjectsWithTag("Enemy");
         foreach(GameObject monster in monsters){
+            this.gameObject.GetComponent<MoneyControl>().Money += monster.GetComponent<MonsterHpControl>().EarnMoney;
             Destroy(monster);
         }
 

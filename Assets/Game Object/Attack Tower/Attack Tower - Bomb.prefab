@@ -10327,10 +10327,10 @@ MonoBehaviour:
   IsRun: 0
   GameControlGameObject: {fileID: 0}
   UpgradeEffect: {fileID: 7408550316232603557}
-  TowerLevel: 0
+  TowerLevel: 1
   TowerLevelInfoText: {fileID: 6605669919219999795}
   UpgradeMoneyText: {fileID: 2923417683776356395}
-  UpgradeMoney: 0
+  UpgradeMoney: 200
   TheTower: Bomb
   TowerAudioSource: {fileID: 0}
   UpgradeSound: {fileID: 8300000, guid: ec0f2b99688507240afdeb8a788b30c2, type: 3}

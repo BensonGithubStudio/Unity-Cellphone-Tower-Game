@@ -49,6 +49,28 @@ public class BuildTower : MonoBehaviour
         BuyTowerInfo.SetActive(false);
         CancelPanel.SetActive(false);
         IsBuying = false;
+
+        if(PlayerPrefs.GetInt("InfiniteScene") == 1){
+            string a = "TowerPosition" + (transform.GetSiblingIndex() + 1);
+            string b = "TowerLevel" + (transform.GetSiblingIndex() + 1);
+            if(PlayerPrefs.GetInt(a) == 1){
+                CloneArmy = Instantiate(SingleTower, MyselfGameObject.transform.position, Quaternion.identity);
+                CloneArmy.GetComponentInChildren<TowerShoot>().TowerLevel = PlayerPrefs.GetInt(b);
+                CloneArmy.GetComponentInChildren<TowerShoot>().UpgradeMoney = 150 + (PlayerPrefs.GetInt(b) * 50);
+            }else if(PlayerPrefs.GetInt(a) == 2){
+                CloneArmy = Instantiate(QuickTower, MyselfGameObject.transform.position, Quaternion.identity);
+                CloneArmy.GetComponentInChildren<TowerShoot>().TowerLevel = PlayerPrefs.GetInt(b);
+                CloneArmy.GetComponentInChildren<TowerShoot>().UpgradeMoney = 150 + (PlayerPrefs.GetInt(b) * 50);
+            }else if(PlayerPrefs.GetInt(a) == 3){
+                CloneArmy = Instantiate(LaserTower, MyselfGameObject.transform.position, Quaternion.identity);
+                CloneArmy.GetComponentInChildren<TowerShoot>().TowerLevel = PlayerPrefs.GetInt(b);
+                CloneArmy.GetComponentInChildren<TowerShoot>().UpgradeMoney = 150 + (PlayerPrefs.GetInt(b) * 50);
+            }else if(PlayerPrefs.GetInt(a) == 4){
+                CloneArmy = Instantiate(BombTower, MyselfGameObject.transform.position, Quaternion.identity);
+                CloneArmy.GetComponentInChildren<TowerShoot>().TowerLevel = PlayerPrefs.GetInt(b);
+                CloneArmy.GetComponentInChildren<TowerShoot>().UpgradeMoney = 150 + (PlayerPrefs.GetInt(b) * 50);
+            }
+        }
     }
 
     // Update is called once per frame

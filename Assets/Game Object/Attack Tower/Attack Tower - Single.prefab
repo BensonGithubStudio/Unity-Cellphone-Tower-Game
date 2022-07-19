@@ -15540,10 +15540,10 @@ MonoBehaviour:
   IsRun: 0
   GameControlGameObject: {fileID: 0}
   UpgradeEffect: {fileID: 4829606935696680778}
-  TowerLevel: 0
+  TowerLevel: 1
   TowerLevelInfoText: {fileID: 400545425105253625}
   UpgradeMoneyText: {fileID: 8178767572259458803}
-  UpgradeMoney: 0
+  UpgradeMoney: 200
   TheTower: Single
   TowerAudioSource: {fileID: 0}
   UpgradeSound: {fileID: 8300000, guid: ec0f2b99688507240afdeb8a788b30c2, type: 3}

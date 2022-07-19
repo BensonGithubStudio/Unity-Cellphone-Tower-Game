@@ -34,8 +34,6 @@ public class TowerShoot : MonoBehaviour
     {
 		IsRun = true;
         CanShoot = true;
-		TowerLevel = 1;
-		UpgradeMoney = 200;
 		GameControlGameObject = GameObject.Find("Game Control");
 		TowerAudioSource = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<AudioSource>();
     }
