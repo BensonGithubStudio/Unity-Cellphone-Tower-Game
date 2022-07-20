@@ -41,6 +41,8 @@ public class TowerInfo : MonoBehaviour
         GameControlGameObject.GetComponent<MoneyControl>().Money += TowerSellPrice;
         SellTowerAudioSource.PlayOneShot(SellTowerSound);
         BuildTower.IsBuying = false;
+        GameObject.Find("Road Block").GetComponent<RoadBlock>().RoadBlockTime = 0;
+        Time.timeScale = GameObject.Find("Game Control").GetComponent<InfiniteLevelControl>().NowSpeed;
         Destroy(TowerAll);
     }
 }

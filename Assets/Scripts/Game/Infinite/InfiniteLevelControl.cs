@@ -45,6 +45,8 @@ public class InfiniteLevelControl : MonoBehaviour
     public Text SpeedUpText;
     public GameObject PauseImage;
     public GameObject StartImage;
+    public GameObject RoadBlockWarm;
+    public float NowSpeed;
 
     // Start is called before the first frame update
     void Start()
@@ -52,6 +54,7 @@ public class InfiniteLevelControl : MonoBehaviour
         InvokeRepeating("TimeCount", 0, 1);
         WaveText.SetActive(false);
         CanPlusMoney = false;
+        NowSpeed = 1;
         if(this.gameObject.GetComponent<GameButton>().ThisScene != "Infinite Level"){
             EnemyAppearTime = 40;
             NowWave = 0;
@@ -202,15 +205,18 @@ public class InfiniteLevelControl : MonoBehaviour
         if(Time.timeScale == 1 || Time.timeScale == 2){
             Time.timeScale = 0;
         }else{
-            Time.timeScale = 1;
+            GameObject.Find("Road Block").GetComponent<RoadBlock>().RoadBlockTime = 0;
+            Time.timeScale = NowSpeed;
         }
     }
 
     public void OnClickSpeedUp(){
         if(Time.timeScale == 1){
             Time.timeScale = 2;
+            NowSpeed = 2;
         }else if(Time.timeScale == 2){
             Time.timeScale = 1;
+            NowSpeed = 1;
         }
     }
 
