@@ -10,12 +10,14 @@ public class Freezon : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        FreezonTime = Random.Range(7, 21);
-        InvokeRepeating("OpenSkill", FreezonTime, FreezonTime);
+        FreezonTime = Random.Range(2, 21);
+        Invoke("OpenSkill", FreezonTime);
     }
 
     void OpenSkill (){
         GameObject a = Instantiate(FreezonObject, transform.position, Quaternion.identity);
         Destroy(a, 2);
+        FreezonTime = Random.Range(2, 21);
+        Invoke("OpenSkill", FreezonTime);
     }
 }

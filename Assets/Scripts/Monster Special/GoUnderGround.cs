@@ -19,7 +19,7 @@ public class GoUnderGround : MonoBehaviour
     void Start()
     {
         GoUnderGroundTime = Random.Range(7, 21);
-        InvokeRepeating("OpenSkill", GoUnderGroundTime, GoUnderGroundTime);
+        Invoke("OpenSkill", GoUnderGroundTime);
     }
 
     void OpenSkill(){
@@ -31,6 +31,8 @@ public class GoUnderGround : MonoBehaviour
         GameObject a = Instantiate(UnderSmoke, transform.position, Quaternion.identity);
         Destroy(a, 2);
         Invoke("OpenSkill2", 3);
+        GoUnderGroundTime = Random.Range(7, 21);
+        Invoke("OpenSkill", GoUnderGroundTime);
     }
 
     void OpenSkill2(){

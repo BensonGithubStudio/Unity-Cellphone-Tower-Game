@@ -10,12 +10,14 @@ public class PlusHeart : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        PlusHeartTime = Random.Range(7, 21);
-        InvokeRepeating("OpenSkill", PlusHeartTime, PlusHeartTime);
+        PlusHeartTime = Random.Range(2, 21);
+        Invoke("OpenSkill", PlusHeartTime);
     }
 
     void OpenSkill(){
         GameObject a = Instantiate(PlusHeartObject, transform.position, Quaternion.identity);
         Destroy(a, 2);
+        PlusHeartTime = Random.Range(2, 21);
+        Invoke("OpenSkill", PlusHeartTime);
     }
 }

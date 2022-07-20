@@ -10,12 +10,14 @@ public class Dizzy : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        DizzyTime = Random.Range(7, 21);
-        InvokeRepeating("OpenSkil", DizzyTime, DizzyTime);
+        DizzyTime = Random.Range(2, 21);
+        Invoke("OpenSkil", DizzyTime);
     }
 
     void OpenSkil(){
         GameObject a = Instantiate(DizzyObject, transform.position, Quaternion.identity);
         Destroy(a, 2);
+        DizzyTime = Random.Range(2, 21);
+        Invoke("OpenSkil", DizzyTime);
     }
 }
