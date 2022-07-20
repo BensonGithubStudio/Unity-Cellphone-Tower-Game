@@ -50,7 +50,7 @@ public class BuildTower : MonoBehaviour
         CancelPanel.SetActive(false);
         IsBuying = false;
 
-        if(PlayerPrefs.GetInt("InfiniteScene") == 1){
+        if(PlayerPrefs.GetInt("InfiniteScene") == 1 && GameControlGameObject.GetComponent<GameButton>().ThisScene == "Infinite Level"){
             string a = "TowerPosition" + (transform.GetSiblingIndex() + 1);
             string b = "TowerLevel" + (transform.GetSiblingIndex() + 1);
             if(PlayerPrefs.GetInt(a) == 1){

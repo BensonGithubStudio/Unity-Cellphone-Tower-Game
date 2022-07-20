@@ -52,6 +52,10 @@ public class InfiniteLevelControl : MonoBehaviour
         InvokeRepeating("TimeCount", 0, 1);
         WaveText.SetActive(false);
         CanPlusMoney = false;
+        if(this.gameObject.GetComponent<GameButton>().ThisScene != "Infinite Level"){
+            EnemyAppearTime = 40;
+            NowWave = 0;
+        }
         if(!PlayerPrefs.HasKey("InfiniteScene")){
             EnemyAppearTime = 40;
             NowWave = 0;
@@ -139,9 +143,11 @@ public class InfiniteLevelControl : MonoBehaviour
 
     public void OnClickNextWave(){
         if(EnemyNumber <=0 ){
-            PlayerPrefs.DeleteKey("InfiniteScene");
             EnemyAppearTime = 0;
             StartOrNextWaveText.text = "下一波";
+        }
+        if(this.gameObject.GetComponent<GameButton>().ThisScene == "Infinite Level"){
+            PlayerPrefs.DeleteKey("InfiniteScene");
         }
     }
 

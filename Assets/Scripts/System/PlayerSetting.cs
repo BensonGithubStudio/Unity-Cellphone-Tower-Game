@@ -13,6 +13,8 @@ public class PlayerSetting : MonoBehaviour
     public int NowValue;
     void Start()
     {
+        Screen.sleepTimeout = SleepTimeout.NeverSleep;
+
         if(ThisScene == "Awake Game"){
             if(!PlayerPrefs.HasKey("Quality")){
                 QualitySettings.SetQualityLevel(2);

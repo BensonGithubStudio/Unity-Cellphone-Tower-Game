@@ -14,10 +14,14 @@ public class MonsterHpControl : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        GameControlGameObject = GameObject.Find("Game Control");
+
+        if(GameControlGameObject.GetComponent<GameButton>().ThisScene != "Infinite Level"){
+            Hp = MaxHp;
+        }
         if(!PlayerPrefs.HasKey("InfiniteScene")){
             Hp = MaxHp;
         }
-        GameControlGameObject = GameObject.Find("Game Control");
     }
 
     // Update is called once per frame
