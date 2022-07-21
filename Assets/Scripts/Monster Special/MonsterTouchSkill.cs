@@ -19,9 +19,9 @@ public class MonsterTouchSkill : MonoBehaviour
             }
         }
         if(other.gameObject.tag == "Plus Heart"){
-            if(this.gameObject.GetComponent<MonsterHpControl>().Hp < this.gameObject.GetComponent<MonsterHpControl>().MaxHp / 2){
+            if(this.gameObject.GetComponent<MonsterHpControl>().Hp < ((this.gameObject.GetComponent<MonsterHpControl>().MaxHp / 3) * 2)){
                 if(PlusHeartCheckTime  < 0){
-                    this.gameObject.GetComponent<MonsterHpControl>().Hp += (this.gameObject.GetComponent<MonsterHpControl>().MaxHp / 2);
+                    this.gameObject.GetComponent<MonsterHpControl>().Hp += (this.gameObject.GetComponent<MonsterHpControl>().Hp / 2);
                     PlusHeartCheckTime = 1;
                 }
             }

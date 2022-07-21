@@ -12,6 +12,8 @@ public class HeartControl : MonoBehaviour
     public Text NowHaveHeartText;
 
     public int Heart;
+    public int SaveHeart;
+    public bool CanSaveHeart;
 
     // Start is called before the first frame update
     void Start()
@@ -20,12 +22,28 @@ public class HeartControl : MonoBehaviour
         CanCallAppearHint = true;
 
         TowerPosition = GameObject.Find("Tower Position");
+        CanSaveHeart = true;
     }
 
     // Update is called once per frame
     void Update()
     {
         NowHaveHeartText.text = "" + Heart;
+
+        if(!this.gameObject.GetComponent<GameButton>().HeartInfinite){
+            if(CanSaveHeart == false){
+                Heart = SaveHeart;
+                CanSaveHeart = true;
+            }
+        }
+
+        if(this.gameObject.GetComponent<GameButton>().HeartInfinite){
+            if(CanSaveHeart){
+                SaveHeart = Heart;
+                CanSaveHeart = false;
+            }
+            Heart = 2147483647;
+        }
 
         if(Heart <= 0){
             Heart = 0;

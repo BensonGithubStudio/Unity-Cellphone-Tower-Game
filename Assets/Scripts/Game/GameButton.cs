@@ -16,6 +16,15 @@ public class GameButton : MonoBehaviour
     public GameObject CloseGameAssure;
     public GameObject TowerPosition;
 
+    public GameObject InfiniteSetting;
+    public bool RoadCanBlock;
+    public GameObject RoadCanBlockImage;
+
+    public GameObject MoneyInfiniteImage;
+    public bool MoneyInfinite;
+    public GameObject HeartInfiniteImage;
+    public bool HeartInfinite;
+
     void Start(){
         Screen.sleepTimeout = SleepTimeout.NeverSleep;
     }
@@ -35,6 +44,12 @@ public class GameButton : MonoBehaviour
         this.gameObject.GetComponent<InfiniteSceneSave>().SaveGame = true;
         Time.timeScale = 1;
     }
+
+    private void OnApplicationQuit() {
+        this.gameObject.GetComponent<InfiniteSceneSave>().SaveGame = true;
+        Time.timeScale = 1;
+    }
+
     public void OnClickCloseGameAndDontSave(){
         PlayerPrefs.DeleteKey("InfiniteScene");
         ClickButtonAudioSource.pitch = 1;
@@ -88,5 +103,47 @@ public class GameButton : MonoBehaviour
     public void OnClickSettingScreenQuality(){
         ClickButtonAudioSource.pitch = 1;
         ClickButtonAudioSource.PlayOneShot(ClickButtonSound);
+    }
+
+    public void OnClickInfiniteSetting(){
+        if(InfiniteSetting.activeSelf == true){
+            Time.timeScale = 1;
+            TowerPosition.SetActive(true);
+            InfiniteSetting.SetActive(false);
+        }else{
+            Time.timeScale = 0;
+            TowerPosition.SetActive(false);
+            InfiniteSetting.SetActive(true);
+        }
+    }
+
+    public void OnClickRoadBlockSetting(){
+        if(RoadCanBlock){
+            RoadCanBlockImage.SetActive(false);
+            RoadCanBlock = false;
+        }else{
+            RoadCanBlockImage.SetActive(true);
+            RoadCanBlock = true;
+        }
+    }
+
+    public void OnClickMoneyInfinite(){
+        if(MoneyInfinite){
+            MoneyInfiniteImage.SetActive(false);
+            MoneyInfinite = false;
+        }else{
+            MoneyInfiniteImage.SetActive(true);
+            MoneyInfinite = true;
+        }
+    }
+
+    public void OnClickHeartInfinite(){
+        if(HeartInfinite){
+            HeartInfiniteImage.SetActive(false);
+            HeartInfinite = false;
+        }else{
+            HeartInfiniteImage.SetActive(true);
+            HeartInfinite = true;
+        }
     }
 }

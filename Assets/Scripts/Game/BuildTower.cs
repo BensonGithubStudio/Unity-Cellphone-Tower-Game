@@ -13,7 +13,8 @@ public class BuildTower : MonoBehaviour
     public Color LowerLevel50Color;
     public Color LowerLevel100Color;
     public Color LowerLevel200Color;
-    public Color HigherLevel200Color;
+    public Color LowerLevel500Color;
+    public Color HigherLevel500Color;
 
     public GameObject GameControlGameObject;
     public GameObject BuyTowerInfo;
@@ -110,8 +111,10 @@ public class BuildTower : MonoBehaviour
                 this.gameObject.GetComponent<Renderer>().material.color = LowerLevel100Color;
             }else if(a <= 200){
                 this.gameObject.GetComponent<Renderer>().material.color = LowerLevel200Color;
-            }else {
-                this.gameObject.GetComponent<Renderer>().material.color = HigherLevel200Color;
+            }else if(a <= 500){
+                this.gameObject.GetComponent<Renderer>().material.color = LowerLevel500Color;
+            }else{
+                this.gameObject.GetComponent<Renderer>().material.color = HigherLevel500Color;
             }
         }
     }
